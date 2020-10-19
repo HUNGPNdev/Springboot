@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hùng Đây Rồi</title>
+</head>
+<body>
+	<h1 th:text="${hello}"></h1><br><br>
+	
+	<table style="width: 20%" border="1px">
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Option</th>
+		</tr>
+		<tr th:each="student : ${list}">
+			<td th:text="${student.id}"></td>
+			<td th:text="${student.name}"></td>
+			<td style="width: 120px">
+				<a th:href="@{/delete/}+${student.id}">Xóa</a>
+				<a th:href="@{/edit/}+${student.id}+'/'+${student.name}">Sửa</a>
+			</td>
+		</tr>
+	</table><br><br>
+	<a th:href="@{/add}"><h1>Thêm mới</h1></a>
+</body>
+</html>

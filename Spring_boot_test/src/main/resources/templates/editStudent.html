@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hùng Đây Rồi</title>
+</head>
+<body>
+	<a th:href="@{/home}"><h1>Danh sách student</h1></a>
+	<h1>Sửa Student</h1>
+	<form th:action="@{/postEdit/}+*{id}" method="get" th:object="${student}">
+	  <label for="id">Id:</label><br>
+	  <input type="text" id="newid" name="id" value="" th:field="*{id}"><br>
+	  <label for="name">Name:</label><br>
+	  <input type="text" id="newname" name="name" value="" th:field="*{name}"><br><br>
+	  <input type="submit" value="Submit">
+	</form> 
+</body>
+</html>
