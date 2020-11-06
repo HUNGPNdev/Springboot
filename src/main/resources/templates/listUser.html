@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List User</title>
+
+</head>
+<body style="width: 800px ;margin: 0px auto">
+    <br><br><h1>Hùng Đây Rồi</h1><br>
+    <table border="1px" width="100%">
+        <tr>
+            <th>Id</th>
+            <th>FullName</th>
+            <th>UserName</th>
+            <th>Options</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.getUserId()}"></td>
+            <td th:text="${user.getFullName()}"></td>
+            <td th:text="${user.getUsername()}"></td>
+            <td>
+                <button th:attr="onclick=|getUserById('${user.getUserId()}')|" >Sửa</button>
+                <button><a th:href="@{/delete/}+${user.getUserId()}">Xóa</a></button>
+            </td>
+        </tr>
+    </table><br><br><br>
+    <h1>Edit</h1>
+    <form th:action="@{/edituser}" method="post">
+        <input type="text" id="userId" hidden name="userId"><br><br>
+        <label for="username">User name:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password"><br><br>
+        <label for="fullName">Full name:</label>
+        <input type="text" id="fullName" name="fullName"><br><br>
+        <label for="role">Role name:</label>
+        <input type="text" id="role" name="role"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <br><br><br>
+    <h1>Thêm User tại đây</h1>
+    <form th:action="@{/insert}" method="post">
+        <label for="username">User name:</label>
+        <input type="text" name="username"><br><br>
+        <label for="password">Password:</label>
+        <input type="text" name="password"><br><br>
+        <label for="fullName">Full name:</label>
+        <input type="text"  name="fullName"><br><br>
+        <label for="role">Role name:</label>
+        <input type="text" name="role"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function getUserById(id) {
+            // var user = {"id" : id};
+
+            $.ajax({
+                type: "POST",
+                url: "/getUserById/"+id,
+                // dataType: "json",
+                // contentType: "application/json; chartset=UTF-8",
+                // data: JSON.stringify(user),
+                success: function (data) {
+                    console.log(data);
+                    $("#userId").val(data.userId);
+                    $("#username").val(data.username);
+                    $("#password").val(data.password);
+                    $("#fullName").val(data.fullName);
+                    $("#role").val(data.role);
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        }
+    </script>
+</html>

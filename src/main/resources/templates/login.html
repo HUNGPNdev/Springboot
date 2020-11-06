@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body style="width: 300px; margin: 0px auto">
+    <br><br><br>
+    <h1>Form Login</h1>
+    <form th:action="@{/authen-user}" method="post">
+        <label for="username">First name:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Last name:</label>
+        <input type="text" id="password" name="password"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <h1 th:text="${ck}"></h1>
+</body>
+</html>
