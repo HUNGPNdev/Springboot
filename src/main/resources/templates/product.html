@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body style="width: 800px ;margin: 0px auto">
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link active" th:href="@{/color}">Color</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" th:href="@{/product}">Product</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" th:href="@{/brand}">Brand</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" th:href="@{/order}">Order</a>
+    </li>
+</ul>
+<br> <br><br>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">price</th>
+        <th scope="col">brand</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="p : ${prod}">
+        <th scope="row" th:text="${p.productId}"></th>
+        <td th:text="${p.productName}"></td>
+        <td th:text="${p.price}"></td>
+        <td th:text="${p.brandId.brandId}"></td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<br>
+<h2><button id="add">Thêm Brand</button></h2>
+<br>
+<div class="container">
+    <form id="target" class="form-horizontal" th:action="@{/product}" method="post">
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="productName"><b>productName</b>:</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="productName" placeholder="Enter productName" name="productName">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="price"><b>Price</b>:</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="price" placeholder="Enter price" name="price">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6 row">
+                <label class="control-label col-sm-2"><b>Brand</b>:</label>
+                <div class="col-sm-8">
+                    <div class="checkbox" style="height: 95px;overflow-y: auto">
+                        <label th:each="p : ${brand}"><input type="radio" name="brand" id="brand" th:value="${p.brandId}" th:text="${p.brandName}"></label><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 row">
+                <label class="control-label col-sm-2"><b>Brand</b>:</label>
+                <div class="col-sm-8">
+                    <div class="checkbox" style="height: 95px;overflow-y: auto">
+                        <label th:each="p : ${brand}"><input type="radio" name="brand" id="brand" th:value="${p.brandId}" th:text="${p.brandName}"><br></label><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 row">
+                <label class="control-label col-sm-2"><b>Color</b>:</label>
+                <div class="col-sm-8">
+                    <div class="checkbox" style="height: 95px;overflow-y: auto" th:each="c : ${color}">
+                        <label><input type="checkbox" name="color" th:value="${c.colorId}" th:text="${c.colorName}"><br></label><br>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-secondary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script th:src="@{js/bootstrap.min.js}"></script>
+<script th:src="@{js/jquery.min.js}"></script>
+<script>
+    // $( "#target" ).submit(function( event ) {
+    //     var ids = $('input[name = color]:checked').map(function () {
+    //         return $(this).val();
+    //     }).get();
+    //     deleteNew(ids);
+    // });
+    // function deleteNew(data) {
+    //     console.log(data);
+    //     alert(data);
+    //     $.ajax({
+    //         url: '/product',
+    //         type: 'POST',
+    //         contentType: 'application/json',
+    //         data: JSON.stringify(data),
+    //         success: function (result) {
+    //         },
+    //         error: function (error) {
+    //         }
+    //     });
+    // };
+</script>
+</body>
+</html>

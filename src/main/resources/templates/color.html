@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Color</title>
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body style="width: 800px ;margin: 0px auto">
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link active" th:href="@{/color}">Color</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" th:href="@{/product}">Product</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" th:href="@{/brand}">Brand</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" th:href="@{/order}">Order</a>
+    </li>
+</ul>
+<br> <br><br>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">color_name</th>
+            <th scope="col">product_id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row" >1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+        </tr>
+        </tbody>
+    </table>
+<br><br>
+    <div class="container">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link active" th:href="@{/color}">Color</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/product}">Product</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/brand}">Brand</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/order}">Order</a>
+            </li>
+        </ul><br>
+        <form class="form-horizontal" action="/action_page.php">
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="email">color_name:</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="search">product_id:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="" id="search" placeholder="search..">
+                    <div class="checkbox" id="outoshow" style="height: 95px;overflow-y: auto" th:each="p : ${prod}">
+                        <label><input type="checkbox" th:text="${p.productName}"></label><br>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-secondary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+<script th:src="@{js/bootstrap.min.js}"></script>
+<script th:src="@{js/jquery.min.js}"></script>
+<script>
+    // $(document).ready(function() {
+    //     document.getElementById("outoshow").hidden = true;
+    //     document.getElementById("outohidden").hidden = false;
+    //    $("#search").change(function ()  {
+    //        var input = $("#search").val();
+    //        if (input == "" ) {
+    //            document.getElementById("outoshow").hidden = true;
+    //            document.getElementById("outohidden").hidden = false;
+    //        } else {
+    //            document.getElementById("outoshow").hidden = false;
+    //            document.getElementById("outohidden").hidden = true;
+    //        }
+    //
+    //    })
+    // });
+</script>
+</body>
+</html>
