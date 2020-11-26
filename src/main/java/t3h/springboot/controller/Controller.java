@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import t3h.springboot.entitis.User;
 import t3h.springboot.service.UserService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @org.springframework.stereotype.Controller

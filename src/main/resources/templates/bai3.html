@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lap5</title>
+    <base href="${pageContext.servletContext.contextPath}/">
+</head>
+<body>
+    <h1>POST send mail</h1>
+    <h2 th:text="${message}"></h2>
+    <form action="/lab5/send" method="post" enctype="multipart/form-data">
+        From: <input type="text" name="from" placeholder="from"><br>
+        To: <input type="text" name="to" placeholder="to"><br>
+        Subject: <input type="text" name="subject"><br>
+        <textarea rows="3" cols="30" name="body" placeholder="body"></textarea><br>
+        <button>Submit</button>
+    </form>
+</body>
+</html>

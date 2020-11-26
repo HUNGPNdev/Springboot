@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lap5</title>
+    <base href="${pageContext.servletContext.contextPath}/">
+</head>
+<body>
+    <h1>POST Image-file</h1>
+    <form action="/lab5/bai2apply" method="post" enctype="multipart/form-data">
+        Name: <input type="text" name="fullname"><br>
+        Ảnh: <input type="file" name="photo"><br>
+        File: <input type="file" name="cv"><br>
+        <button>Submit</button>
+    </form>
+</body>
+</html>

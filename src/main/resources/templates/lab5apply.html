@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lap5</title>
+</head>
+<body>
+    <h1>Lap5 - show success</h1>
+    <h1>Thông tin</h1>
+    <img th:src="@{'/files/'+${photo_name}}" width="150px"> <br>
+    <h2>Hồ Sơ</h2>
+    <ul>
+        Tên ảnh: <li th:text="${photo_name}"> </li>
+        Tên cv: <li th:text="${cv_name}"></li>
+        Kiểu Cv: <li th:text="${cv_type}"></li>
+        Size: <li th:text="${cv_size}"></li>
+    </ul>
+</body>
+</html>
